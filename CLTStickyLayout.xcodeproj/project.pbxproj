@@ -13,6 +13,17 @@
 		D73714711E728BC7005B0807 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737146F1E728BC7005B0807 /* Main.storyboard */; };
 		D73714731E728BC7005B0807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73714721E728BC7005B0807 /* Assets.xcassets */; };
 		D73714761E728BC7005B0807 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D73714741E728BC7005B0807 /* LaunchScreen.storyboard */; };
+		D73714801E728E35005B0807 /* CLTStickyLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D737147F1E728E35005B0807 /* CLTStickyLayout.m */; };
+		D73714841E73BA78005B0807 /* CLTItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D73714821E73BA78005B0807 /* CLTItemCell.m */; };
+		D73714851E73BA78005B0807 /* CLTItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73714831E73BA78005B0807 /* CLTItemCell.xib */; };
+		D737148D1E73BAB2005B0807 /* CLTSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D737148B1E73BAB2005B0807 /* CLTSectionHeaderView.m */; };
+		D737148E1E73BAB2005B0807 /* CLTSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737148C1E73BAB2005B0807 /* CLTSectionHeaderView.xib */; };
+		D73714921E73BAC4005B0807 /* CLTSectionFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D73714901E73BAC4005B0807 /* CLTSectionFooterView.m */; };
+		D73714931E73BAC4005B0807 /* CLTSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73714911E73BAC4005B0807 /* CLTSectionFooterView.xib */; };
+		D73714971E73BADE005B0807 /* CLTHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D73714951E73BADE005B0807 /* CLTHeaderView.m */; };
+		D73714981E73BADE005B0807 /* CLTHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D73714961E73BADE005B0807 /* CLTHeaderView.xib */; };
+		D737149C1E73BAEC005B0807 /* CLTFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D737149A1E73BAEC005B0807 /* CLTFooterView.m */; };
+		D737149D1E73BAEC005B0807 /* CLTFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737149B1E73BAEC005B0807 /* CLTFooterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +37,24 @@
 		D73714721E728BC7005B0807 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D73714751E728BC7005B0807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D73714771E728BC7005B0807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D737147E1E728E35005B0807 /* CLTStickyLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTStickyLayout.h; sourceTree = "<group>"; };
+		D737147F1E728E35005B0807 /* CLTStickyLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTStickyLayout.m; sourceTree = "<group>"; };
+		D73714811E73BA78005B0807 /* CLTItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTItemCell.h; sourceTree = "<group>"; };
+		D73714821E73BA78005B0807 /* CLTItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTItemCell.m; sourceTree = "<group>"; };
+		D73714831E73BA78005B0807 /* CLTItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLTItemCell.xib; sourceTree = "<group>"; };
+		D737148A1E73BAB2005B0807 /* CLTSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTSectionHeaderView.h; sourceTree = "<group>"; };
+		D737148B1E73BAB2005B0807 /* CLTSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTSectionHeaderView.m; sourceTree = "<group>"; };
+		D737148C1E73BAB2005B0807 /* CLTSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLTSectionHeaderView.xib; sourceTree = "<group>"; };
+		D737148F1E73BAC4005B0807 /* CLTSectionFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTSectionFooterView.h; sourceTree = "<group>"; };
+		D73714901E73BAC4005B0807 /* CLTSectionFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTSectionFooterView.m; sourceTree = "<group>"; };
+		D73714911E73BAC4005B0807 /* CLTSectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLTSectionFooterView.xib; sourceTree = "<group>"; };
+		D73714941E73BADE005B0807 /* CLTHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTHeaderView.h; sourceTree = "<group>"; };
+		D73714951E73BADE005B0807 /* CLTHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTHeaderView.m; sourceTree = "<group>"; };
+		D73714961E73BADE005B0807 /* CLTHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLTHeaderView.xib; sourceTree = "<group>"; };
+		D73714991E73BAEC005B0807 /* CLTFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTFooterView.h; sourceTree = "<group>"; };
+		D737149A1E73BAEC005B0807 /* CLTFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLTFooterView.m; sourceTree = "<group>"; };
+		D737149B1E73BAEC005B0807 /* CLTFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLTFooterView.xib; sourceTree = "<group>"; };
+		D737149E1E73BCA7005B0807 /* CLTProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +91,8 @@
 				D737146A1E728BC7005B0807 /* AppDelegate.m */,
 				D737146C1E728BC7005B0807 /* ViewController.h */,
 				D737146D1E728BC7005B0807 /* ViewController.m */,
+				D73714861E73BA7F005B0807 /* View */,
+				D737147D1E728E22005B0807 /* Layout */,
 				D737146F1E728BC7005B0807 /* Main.storyboard */,
 				D73714721E728BC7005B0807 /* Assets.xcassets */,
 				D73714741E728BC7005B0807 /* LaunchScreen.storyboard */,
@@ -77,6 +108,38 @@
 				D73714671E728BC7005B0807 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D737147D1E728E22005B0807 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				D737147E1E728E35005B0807 /* CLTStickyLayout.h */,
+				D737147F1E728E35005B0807 /* CLTStickyLayout.m */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		D73714861E73BA7F005B0807 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D73714811E73BA78005B0807 /* CLTItemCell.h */,
+				D73714821E73BA78005B0807 /* CLTItemCell.m */,
+				D73714831E73BA78005B0807 /* CLTItemCell.xib */,
+				D737148A1E73BAB2005B0807 /* CLTSectionHeaderView.h */,
+				D737148B1E73BAB2005B0807 /* CLTSectionHeaderView.m */,
+				D737148C1E73BAB2005B0807 /* CLTSectionHeaderView.xib */,
+				D737148F1E73BAC4005B0807 /* CLTSectionFooterView.h */,
+				D73714901E73BAC4005B0807 /* CLTSectionFooterView.m */,
+				D73714911E73BAC4005B0807 /* CLTSectionFooterView.xib */,
+				D73714941E73BADE005B0807 /* CLTHeaderView.h */,
+				D73714951E73BADE005B0807 /* CLTHeaderView.m */,
+				D73714961E73BADE005B0807 /* CLTHeaderView.xib */,
+				D73714991E73BAEC005B0807 /* CLTFooterView.h */,
+				D737149A1E73BAEC005B0807 /* CLTFooterView.m */,
+				D737149B1E73BAEC005B0807 /* CLTFooterView.xib */,
+				D737149E1E73BCA7005B0807 /* CLTProtocol.h */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +173,7 @@
 				TargetAttributes = {
 					D73714621E728BC7005B0807 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = XEP6E77S6V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,8 +202,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D73714761E728BC7005B0807 /* LaunchScreen.storyboard in Resources */,
+				D737148E1E73BAB2005B0807 /* CLTSectionHeaderView.xib in Resources */,
 				D73714731E728BC7005B0807 /* Assets.xcassets in Resources */,
+				D73714931E73BAC4005B0807 /* CLTSectionFooterView.xib in Resources */,
+				D73714851E73BA78005B0807 /* CLTItemCell.xib in Resources */,
+				D73714981E73BADE005B0807 /* CLTHeaderView.xib in Resources */,
 				D73714711E728BC7005B0807 /* Main.storyboard in Resources */,
+				D737149D1E73BAEC005B0807 /* CLTFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +219,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73714801E728E35005B0807 /* CLTStickyLayout.m in Sources */,
+				D73714971E73BADE005B0807 /* CLTHeaderView.m in Sources */,
+				D737148D1E73BAB2005B0807 /* CLTSectionHeaderView.m in Sources */,
+				D73714921E73BAC4005B0807 /* CLTSectionFooterView.m in Sources */,
 				D737146E1E728BC7005B0807 /* ViewController.m in Sources */,
+				D737149C1E73BAEC005B0807 /* CLTFooterView.m in Sources */,
 				D737146B1E728BC7005B0807 /* AppDelegate.m in Sources */,
 				D73714681E728BC7005B0807 /* main.m in Sources */,
+				D73714841E73BA78005B0807 /* CLTItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XEP6E77S6V;
 				INFOPLIST_FILE = CLTStickyLayout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yrocky.CLTStickyLayout;
@@ -283,6 +359,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XEP6E77S6V;
 				INFOPLIST_FILE = CLTStickyLayout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yrocky.CLTStickyLayout;
