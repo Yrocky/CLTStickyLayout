@@ -85,7 +85,7 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     self.sectionFooterHeight = 40;
     self.sectionMargin = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0);
     
-    self.itemSize = CGSizeMake(405, 50);// default 100 50
+    self.itemSize = CGSizeMake(405, 20);// default 100 50
     
     self.itemHorizontalMargin = 10;
     self.itemVerticalMargin = 1;
@@ -208,29 +208,22 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
         minSectionHeaderY += [self _stickyLayoutHeaderViewHeight];
         minSectionFooterY += [self _stickyLayoutHeaderViewHeight];
         baseItemCellX = self.sectionMargin.left;
-//        baseItemCellY = self.sectionMargin.top;
         
         // section header view
         if (needsToPopulateSectionHeaderAttributes) {
             
             nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : [self stackedSectionHeightUpToSection:(section + 1)];
             
+            CGFloat columnMinY = (section == 0) ? 0.0 : [self stackedSectionHeightUpToSection:section];
             if (!self.stickySectionHeader) {
                 
-                minSectionHeaderY += (section == 0 ? 0.0f : [self stackedSectionHeightUpToSection:section]);
+                minSectionHeaderY += columnMinY;
             }else{
             
-//                nextMinSectionHeaderY
-                CGFloat y = MAX(self.collectionView.contentOffset.y, minSectionHeaderY);
-                MAX(nextMinSectionHeaderY - [self sectionHeight:section], minSectionHeaderY);
-                CGFloat c = MAX(nextMinSectionHeaderY - [self sectionHeight:section], minSectionHeaderY);
+                nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : [self stackedSectionHeightUpToSection:(section + 1)];
                 
-//                minSectionHeaderY += MIN(y, nextMinSectionHeaderY - minSectionHeaderY);
-//                minSectionHeaderY = MAX(nextMinSectionHeaderY - [self sectionHeight:section], minSectionHeaderY);
-                minSectionHeaderY = MIN(c, self.collectionView.contentOffset.y);
+                minSectionHeaderY = fminf(fmaxf(self.collectionView.contentOffset.y, columnMinY), (nextMinSectionHeaderY - [self _stickyLayoutSectionHeaderViewHeight]));
             }
-            
-//            CGFloat dayColumnHeaderMinY = fminf(fmaxf(self.collectionView.contentOffset.y, columnMinY), (nextColumnMinY - self.dayColumnHeaderHeight));
             
             NSIndexPath * sectionHeaderIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
             UICollectionViewLayoutAttributes * sectionHeaderAttributes = [self layoutAttributesForSupplementaryViewAtIndexPath:sectionHeaderIndexPath ofKind:CLTCollectionElementKindSectionHeader withItemCache:self.sectionHeaderAttributes];
@@ -287,7 +280,6 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
             };
             sectionFooterAttributes.zIndex = [self zIndexForElementKind:CLTCollectionElementKindSectionFooter];
         }
-        
     }];
     
     // footer view
@@ -434,7 +426,7 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     }
     // section header
     else if (elementKind == CLTCollectionElementKindSectionHeader) {
-        return HLLCollectionMinOverlayZ + 2.0;
+        return HLLCollectionMinOverlayZ + 3.0;
     }
     // section footer
     else if (elementKind == CLTCollectionElementKindSectionFooter) {

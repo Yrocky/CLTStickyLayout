@@ -46,11 +46,16 @@
     [self.layout invalidateLayoutCache];
 }
 
+- (BOOL)prefersStatusBarHidden{
+
+    return YES;
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
