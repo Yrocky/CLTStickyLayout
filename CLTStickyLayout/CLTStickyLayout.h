@@ -32,6 +32,7 @@ extern NSString * const CLTCollectionElementKindFooter;
 
 @property (nonatomic) BOOL stickySectionHeader;// default is YES
 
+/** invoke this when the collectionView goto `reloadData` 、`setCollectionViewLayout...`*/
 - (void) invalidateLayoutCache;
 @end
 
