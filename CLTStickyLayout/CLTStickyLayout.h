@@ -37,6 +37,8 @@ extern NSString * const CLTCollectionElementKindFooter;
 
 @protocol CLTStickyLayoutDelegate <NSObject>
 
+@optional;
+
 - (CGFloat) CLT_stickyLayoutHeaderViewHeight;
 - (CGFloat) CLT_stickyLayoutFooterViewHeight;
 

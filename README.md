@@ -2,14 +2,14 @@
 
 ## **CLTStickyLayout** 
 
-CLTStickyLayout是一个让你拥有可以像**UITableView**一样使用**UICollectionView**的自定义layout。通过继承UICollectionViewLayout，来决定Cell、SupplementaryView等视图的显示。
+CLTStickyLayout是一个让你可以像**UITableView**一样使用**UICollectionView**的自定义layout。通过继承UICollectionViewLayout，来决定Cell、SupplementaryView等视图的显示。
 
 
 
 ### 特性
 
 - 可以方便的实现SectionHeaderView和SectionFooterView
-- 可以设置SectionHeaderView是否具有sticky特性
+- 为SectionHeaderView增加了sticky特性
 - 可以根据设置的itemSize自动决定显示效果
 - 可以添加HeaderView和FooterView
 - 缓存对应的高度，减少渲染的时候的计算消耗
@@ -69,6 +69,10 @@ CLTStickyLayout是一个让你拥有可以像**UITableView**一样使用**UIColl
     self.layout.delegate = self;
     [self.collectionView setCollectionViewLayout:self.layout animated:YES];
 ```
+
+
+
+![](sample.png)
 
 
 

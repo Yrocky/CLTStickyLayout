@@ -83,12 +83,12 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     
     self.sectionHeaderHeight = 40;
     self.sectionFooterHeight = 40;
-    self.sectionMargin = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
+    self.sectionMargin = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0);
     
-    self.itemSize = CGSizeMake(70, 50);
+    self.itemSize = CGSizeMake(450, 50);
     
-    self.itemHorizontalMargin = 10;
-    self.itemVerticalMargin = 10;
+    self.itemHorizontalMargin = 1;
+    self.itemVerticalMargin = 1;
     
     self.stickySectionHeader = YES;
     
