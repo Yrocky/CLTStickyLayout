@@ -10,5 +10,6 @@
 #import "CLTProtocol.h"
 
 @interface CLTHeaderView : UICollectionReusableView<CLTProtocol>
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 
 @end

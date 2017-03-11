@@ -17,7 +17,7 @@
 
 #import "CLTItemCell.h"
 
-@interface ViewController ()<UICollectionViewDataSource>
+@interface ViewController ()<UICollectionViewDataSource,CLTStickyLayoutDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -31,9 +31,10 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.collectionView.alwaysBounceVertical = YES;
+//    self.collectionView.delegate = self;
     
     self.layout = [[CLTStickyLayout alloc] init];
-//    self.layout.
+    self.layout.delegate = self;
     [self.collectionView setCollectionViewLayout:self.layout animated:YES];
     
     [self.collectionView registerNib:[CLTItemCell nib] forCellWithReuseIdentifier:[CLTItemCell reuseIdentifier]];
@@ -55,12 +56,12 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 5;
+    return 9;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return 7;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -78,6 +79,7 @@
     if (kind == CLTCollectionElementKindHeader) {
         CLTHeaderView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[CLTHeaderView reuseIdentifier] forIndexPath:indexPath];
         view = headerView;
+//        headerView.headerLabel.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     }
     if (kind == CLTCollectionElementKindSectionHeader) {
         CLTSectionHeaderView * sectionHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:[CLTSectionHeaderView reuseIdentifier] forIndexPath:indexPath];

@@ -27,6 +27,9 @@
                 <constraint firstItem="JpL-eW-MJf" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="2fk-w5-wSE"/>
                 <constraint firstItem="JpL-eW-MJf" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="p9Q-vo-FyS"/>
             </constraints>
+            <connections>
+                <outlet property="headerLabel" destination="JpL-eW-MJf" id="mhX-tb-Mqa"/>
+            </connections>
             <point key="canvasLocation" x="33" y="84.5"/>
         </collectionReusableView>
     </objects>

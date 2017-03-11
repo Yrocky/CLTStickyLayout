@@ -10,6 +10,19 @@
 
 @implementation CLTItemCell
 
+- (void)setSelected:(BOOL)selected
+{
+    if (selected && (self.selected != selected)) {
+        [UIView animateWithDuration:0.1 animations:^{
+            self.transform = CGAffineTransformMakeScale(1.25, 1.25);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.transform = CGAffineTransformIdentity;
+            }];
+        }];
+    }
+    [super setSelected:selected];
+}
 
 #pragma mark -
 #pragma mark CLTProtocol

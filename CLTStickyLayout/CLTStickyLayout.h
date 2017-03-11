@@ -26,7 +26,7 @@ extern NSString * const CLTCollectionElementKindFooter;
 @property (nonatomic) CGFloat sectionFooterHeight;// default is 40
 @property (nonatomic) UIEdgeInsets sectionMargin;// default is {10,10,10,10}
 
-@property (nonatomic) CGSize itemSize;// default is {100 50}
+@property (nonatomic) CGSize itemSize;// default is {70 50}
 @property (nonatomic) CGFloat itemHorizontalMargin;// default is 10
 @property (nonatomic) CGFloat itemVerticalMargin;// default is 10
 
