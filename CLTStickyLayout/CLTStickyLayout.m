@@ -83,7 +83,7 @@ NSUInteger const CLTCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     
     self.sectionHeaderHeight = 40;
     self.sectionFooterHeight = 40;
-    self.sectionMargin = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
+    self.sectionMargin = UIEdgeInsetsMake(10.0, 10.0, 0.0, 10.0);
     
     self.itemSize = CGSizeMake(70, 50);
     
@@ -178,7 +178,6 @@ NSUInteger const CLTCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     
     BOOL needsToPopulateHeaderAttributes = ([self _stickyLayoutHeaderViewHeight] != 0);
     BOOL needsToPopulateFooterAttributes = ([self _stickyLayoutFooterViewHeight] != 0);
-    BOOL needsToPopulateSectionHeaderAttributes = ([self _stickyLayoutSectionHeaderViewHeight] != 0);
     BOOL needsToPopulateSectionFooterAttributes = ([self _stickyLayoutSectionFooterViewHeight] != 0);
     
     // header view
@@ -206,34 +205,31 @@ NSUInteger const CLTCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
         baseItemCellX = self.sectionMargin.left;
         
         // section header view
-        if (needsToPopulateSectionHeaderAttributes) {
+        nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : ([self stackedSectionHeightUpToSection:(section + 1)] + [self _stickyLayoutHeaderViewHeight]);
+        
+        CGFloat columnMinY = (section == 0) ? 0.0 : [self stackedSectionHeightUpToSection:section];
+        columnMinY += [self _stickyLayoutHeaderViewHeight];
+        
+        if (!self.stickySectionHeader) {
+            minSectionHeaderY = columnMinY;
+        }else{
+            nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : [self stackedSectionHeightUpToSection:(section + 1)];
             
-            nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : ([self stackedSectionHeightUpToSection:(section + 1)] + [self _stickyLayoutHeaderViewHeight]);
-            
-            CGFloat columnMinY = (section == 0) ? 0.0 : [self stackedSectionHeightUpToSection:section];
-            columnMinY += [self _stickyLayoutHeaderViewHeight];
-            
-            if (!self.stickySectionHeader) {
-                minSectionHeaderY = columnMinY;
-            }else{
-                nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : [self stackedSectionHeightUpToSection:(section + 1)];
-
-                minSectionHeaderY = fminf(fmaxf(self.collectionView.contentOffset.y, columnMinY), (nextMinSectionHeaderY - [self _stickyLayoutSectionHeaderViewHeight] + [self _stickyLayoutHeaderViewHeight]));
-            }
-            
-            NSIndexPath * sectionHeaderIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-            UICollectionViewLayoutAttributes * sectionHeaderAttributes = [self layoutAttributesForSupplementaryViewAtIndexPath:sectionHeaderIndexPath ofKind:CLTCollectionElementKindSectionHeader withItemCache:self.sectionHeaderAttributes];
-            sectionHeaderAttributes.frame = (CGRect){
-                0.0,
-                minSectionHeaderY,
-                headerViewWidth,
-                [self _stickyLayoutSectionHeaderViewHeight]
-            };
-            sectionHeaderAttributes.zIndex = [self zIndexForElementKind:CLTCollectionElementKindSectionHeader];
-            
-            baseItemCellY = ((section == 0 ? 0.0f : [self stackedSectionHeightUpToSection:section]) + [self _stickyLayoutSectionHeaderViewHeight] + self.sectionMargin.top) + [self _stickyLayoutHeaderViewHeight];
+            minSectionHeaderY = fminf(fmaxf(self.collectionView.contentOffset.y, columnMinY), (nextMinSectionHeaderY - [self _stickyLayoutSectionHeaderViewHeight] + [self _stickyLayoutHeaderViewHeight]));
         }
         
+        NSIndexPath * sectionHeaderIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+        UICollectionViewLayoutAttributes * sectionHeaderAttributes = [self layoutAttributesForSupplementaryViewAtIndexPath:sectionHeaderIndexPath ofKind:CLTCollectionElementKindSectionHeader withItemCache:self.sectionHeaderAttributes];
+        sectionHeaderAttributes.frame = (CGRect){
+            0.0,
+            minSectionHeaderY,
+            headerViewWidth,
+            [self _stickyLayoutSectionHeaderViewHeight]
+        };
+        sectionHeaderAttributes.zIndex = [self zIndexForElementKind:CLTCollectionElementKindSectionHeader];
+        
+        baseItemCellY = ((section == 0 ? 0.0f : [self stackedSectionHeightUpToSection:section]) + [self _stickyLayoutSectionHeaderViewHeight] + self.sectionMargin.top) + [self _stickyLayoutHeaderViewHeight];
+
         // item cell view
         if (numberOfItemsInSection) {
             
