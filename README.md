@@ -78,7 +78,7 @@ CLTStickyLayout是一个让你可以像**UITableView**一样使用**UICollection
 
 ### 待完善
 
-添加**HeaderView**和**FooterView**使用的是SupplementaryView，其实按照逻辑来说这样的做法是不对的， 毕竟这种视图都是作为装饰使用的，就行UITableView中的HeaderView和FooterView一样，没有使用重用池。后期决定将添加的HeaderView和FooterView不使用SupplementaryView或者DecorationView，而是使用UICollectionView的子视图加入到UICollectionView上。
+添加**HeaderView**和**FooterView**使用的是SupplementaryView，其实按照逻辑来说这样的做法是不对的， 毕竟这种视图都是作为装饰使用的，就像UITableView中的HeaderView和FooterView一样，没有使用重用池。后期决定将添加的HeaderView和FooterView不使用SupplementaryView或者DecorationView，而是使用UICollectionView的子视图加入到UICollectionView上。
 
 
 

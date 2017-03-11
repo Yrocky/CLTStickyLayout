@@ -19,7 +19,7 @@ NSString * const CLTCollectionElementKindSectionHeader = @"CLTCollectionElementK
 NSString * const CLTCollectionElementKindSectionFooter = @"CLTCollectionElementKindSectionFooter";
 NSString * const CLTCollectionElementKindFooter = @"CLTCollectionElementKindFooter";
 
-NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a section without z overlap issues
+NSUInteger const CLTCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a section without z overlap issues
 
 @interface CLTStickyLayout ()
 
@@ -78,17 +78,17 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     self.sectionFooterAttributes = [NSMutableDictionary new];
     self.footerAttributes = [NSMutableDictionary new];
     
-    self.headerHeight = 100;
-    self.footerHeight = 50;
+    self.headerHeight = 0;
+    self.footerHeight = 0;
     
     self.sectionHeaderHeight = 40;
     self.sectionFooterHeight = 40;
-    self.sectionMargin = UIEdgeInsetsMake(0.0, 10.0, 0.0, 10.0);
+    self.sectionMargin = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
     
-    self.itemSize = CGSizeMake(450, 50);
+    self.itemSize = CGSizeMake(70, 50);
     
-    self.itemHorizontalMargin = 1;
-    self.itemVerticalMargin = 1;
+    self.itemHorizontalMargin = 10;
+    self.itemVerticalMargin = 10;
     
     self.stickySectionHeader = YES;
     
@@ -111,7 +111,6 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     
     [self.allAttributes removeAllObjects];
 }
-
 
 #pragma mark -
 #pragma mark Layout hooks
@@ -145,7 +144,6 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     [super registerClass:viewClass forDecorationViewOfKind:decorationViewKind];
     self.registeredDecorationClasses[decorationViewKind] = viewClass;
 }
-
 
 /** 子类必须重写的方法 */
 - (void)prepareLayout
@@ -219,7 +217,8 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
                 minSectionHeaderY = columnMinY;
             }else{
                 nextMinSectionHeaderY = (section == (NSUInteger)self.collectionView.numberOfSections) ? self.collectionViewContentSize.height : [self stackedSectionHeightUpToSection:(section + 1)];
-                minSectionHeaderY = fminf(fmaxf(self.collectionView.contentOffset.y, columnMinY), (nextMinSectionHeaderY - [self _stickyLayoutSectionHeaderViewHeight]));
+
+                minSectionHeaderY = fminf(fmaxf(self.collectionView.contentOffset.y, columnMinY), (nextMinSectionHeaderY - [self _stickyLayoutSectionHeaderViewHeight] + [self _stickyLayoutHeaderViewHeight]));
             }
             
             NSIndexPath * sectionHeaderIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
@@ -265,7 +264,9 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
         if (needsToPopulateSectionFooterAttributes) {
             
             minSectionFooterY = (nextMinSectionHeaderY - [self _stickyLayoutSectionFooterViewHeight]) + [self _stickyLayoutHeaderViewHeight];
-            
+            if (!self.stickySectionHeader) {
+                minSectionFooterY -= [self _stickyLayoutHeaderViewHeight];
+            }
             NSIndexPath * sectioniFooterIndexPath = [NSIndexPath indexPathForRow:0 inSection:section];
             UICollectionViewLayoutAttributes * sectionFooterAttributes = [self layoutAttributesForSupplementaryViewAtIndexPath:sectioniFooterIndexPath ofKind:CLTCollectionElementKindSectionFooter withItemCache:self.sectionFooterAttributes];
             sectionFooterAttributes.frame = (CGRect){
@@ -397,22 +398,23 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
 - (CGFloat)zIndexForElementKind:(NSString *)elementKind floating:(BOOL)floating
 {
     if (elementKind == nil) {
-        return HLLCollectionMinOverlayZ;
+        return CLTCollectionMinOverlayZ;
     }
     // section header
     else if (elementKind == CLTCollectionElementKindSectionHeader) {
-        return HLLCollectionMinOverlayZ + 3.0;
+        return CLTCollectionMinOverlayZ + 3.0;
     }
     // section footer
     else if (elementKind == CLTCollectionElementKindSectionFooter) {
-        return HLLCollectionMinOverlayZ + 2.0;
+        return CLTCollectionMinOverlayZ + 2.0;
     }
+    // header
     else if (elementKind == CLTCollectionElementKindHeader){
-        return HLLCollectionMinOverlayZ + 1.0;
+        return CLTCollectionMinOverlayZ + 1.0;
     }
-    // Sign Header
+    // footer
     else if (elementKind == CLTCollectionElementKindFooter){
-        return HLLCollectionMinOverlayZ + 1.0;
+        return CLTCollectionMinOverlayZ + 1.0;
     }
     return CGFLOAT_MIN;
 }
@@ -543,7 +545,6 @@ NSUInteger const HLLCollectionMinOverlayZ = 1000.0; // Allows for 900 items in a
     };
     
     if (self.itemSize.width < availableItemCellWidth) {
-        
         self.layoutType = CLTStrickyLayoutTypeGrid;
     }else{
         self.layoutType = CLTStrickyLayoutTypeList;
