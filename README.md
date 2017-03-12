@@ -82,3 +82,13 @@ CLTStickyLayout是一个让你可以像**UITableView**一样使用**UICollection
 
 
 
+### 相关链接
+
+对UICollectionView的简要介绍---[UICollectionView](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/CollectionViewPGforIOS/Introduction/Introduction.html)
+
+官方文档讲解自定义Layout---[creating-custom-layout](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/CollectionViewPGforIOS/CreatingCustomLayouts/CreatingCustomLayouts.html#//apple_ref/doc/uid/TP40012334-CH5-SW1)
+
+官方文档举例一个自定义Layout---[hierarchichal-tree](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/CollectionViewPGforIOS/AWorkedExample/AWorkedExample.html#//apple_ref/doc/uid/TP40012334-CH8-SW6)
+
+UIKit中提供的一种Layout---[flow-layout](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/CollectionViewPGforIOS/UsingtheFlowLayout/UsingtheFlowLayout.html#//apple_ref/doc/uid/TP40012334-CH3-SW1)
+
